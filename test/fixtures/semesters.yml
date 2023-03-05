@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  current_semester: "2023/01"
+  current_semester_code: "S1"
+  description: "Primavera"
+
+two:
+  current_semester: "2023/02"
+  current_semester_code: "S2"
+  description: "Verão"
