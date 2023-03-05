@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Instructor.find_or_create_by(name: 'Sr. Smith Sanchez', email: 'smithsanchez@hulu.com', password: 'kJtY#$*m123')
-Instructor.find_or_create_by(name: 'Sra. McDonald', email: 'mcdonald@hulu.com', password: 'kJtY#$*m123')
+Instructor.find_or_create_by(name: 'Sr. Smith Sanchez', email: 'smithsanchez@hulu.com', password_digest: 'kJtY#$*m123')
+Instructor.find_or_create_by(name: 'Sra. McDonald', email: 'mcdonald@hulu.com', password_digest: 'kJtY#$*m123')
 
-Student.find_or_create_by(name: 'Julia Torvalds', email: 'juliatorvalds@hulu.com', password: 'kJtY#$*m123')
-Student.find_or_create_by(name: 'John Mayer', email: 'mayer@hulu.com', password: 'kJtY#$*m123')
+Student.find_or_create_by(name: 'Julia Torvalds', email: 'juliatorvalds@hulu.com', password_digest: 'kJtY#$*m123')
+Student.find_or_create_by(name: 'John Mayer', email: 'mayer@hulu.com', password_digest: 'kJtY#$*m123')
 
 TeachingLevel.find_or_create_by(codigo: 'Lvl1', description: 'Nível 1')
 TeachingLevel.find_or_create_by(codigo: 'Lvl2', description: 'Nível 2')

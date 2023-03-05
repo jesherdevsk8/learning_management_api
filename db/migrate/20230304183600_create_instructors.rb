@@ -3,9 +3,9 @@ class CreateInstructors < ActiveRecord::Migration[7.0]
     create_table :instructors do |t|
       t.string  :name, null: false
       t.string  :email, null: false
-      t.string  :password, null: false
+      t.string  :password_digest, null: false
       t.boolean :active, default: true
-      t.string  :status
+      t.string  :status, default: 'ativo'
 
       t.timestamps
     end

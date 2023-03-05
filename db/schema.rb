@@ -29,9 +29,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_005417) do
   create_table "instructors", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.boolean "active", default: true
-    t.string "status"
+    t.string "status", default: "ativo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_005417) do
   create_table "students", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
