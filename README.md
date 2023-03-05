@@ -7,6 +7,8 @@
 > rails g model Instructor name email password active:boolean status
 
 - Create students
+> rails g scaffold Student name email password
+
 > rails g model Student name email password
 
 - Create teaching_levels
