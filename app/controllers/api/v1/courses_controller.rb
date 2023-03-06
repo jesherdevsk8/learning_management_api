@@ -41,6 +41,11 @@ module Api
         end
       end
 
+      # GET /generate_tasks_report
+      def generate_tasks_report
+        send_data(GenerateTasksReportJob.perform_now, disposition: %(attachment; filename=#{'tasks_report'}.xlsx))
+      end
+
       # PATCH/PUT /courses/1
       def update
         if @course.update(course_params)

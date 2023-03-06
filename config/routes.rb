@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # API V1 LEARING MANAGEMENT SYSTEM
   namespace :api do
     namespace :v1 do
@@ -12,9 +11,7 @@ Rails.application.routes.draw do
       resources :courses
       get '/tasks', to: 'courses#list_tasks'
       get '/check_tasks', to: 'courses#check_tasks'
+      get '/generate_tasks_report', to: 'courses#generate_tasks_report'
     end
   end
-
-  # Routing Guide  - https://guides.rubyonrails.org/routing.html
-  # root "articles#index"
 end
