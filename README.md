@@ -37,3 +37,70 @@ rails db:create && \
 rails db:migrate && \
 rails db:seed
 ```
+
+### API ROUTES
+
+```ruby
+GET http://localhost:3000/api/v1/students
+
+POST http://localhost:3000/api/v1/students
+
+{
+    "name": "Julia Torvalds",
+    "email": "juliatorvalds@hulu.com",
+    "password_digest": "123123"
+}
+
+{
+    "name": "John Mayer",
+    "email": "mayer@hulu.com",
+    "password_digest": "123123"
+}
+
+POST http://localhost:3000/api/v1/login
+
+{
+    "email": "juliatorvalds@hulu.com",
+    "password_digest": "123123"
+}
+
+{
+    "email": "mayer@hulu.com",
+    "password_digest": "123123"
+}
+
+GET http://localhost:3000/api/v1/tasks
+
+GET http://localhost:3000/api/v1/instructors
+
+POST http://localhost:3000/api/v1/instructors
+
+{
+    "name": "Sr. Smith Sanchez",
+    "email": "smithsanchez@hulu.com",
+    "password_digest": "123123"
+}
+
+{
+    "name": "Sra. McDonald",
+    "email": "mcdonald@hulu.com",
+    "password_digest": "123123"
+}
+
+POST http://localhost:3000/api/v1/instructor_login
+
+{
+    "email": "smithsanchez@hulu.com",
+    "password_digest": "123123"
+}
+
+{
+    "email": "mcdonald@hulu.com",
+    "password_digest": "123123"
+}
+
+GET http://localhost:3000/api/v1/check_tasks
+
+GET http://localhost:3000/api/v1/courses
+
+```
