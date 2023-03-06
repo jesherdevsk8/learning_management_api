@@ -118,3 +118,10 @@ GET http://localhost:3000/api/v1/check_tasks
 GET http://localhost:3000/api/v1/courses
 
 ```
+
+- Route to generate report tasks
+
+```ruby
+GET http://localhost:3000/api/v1/generate_tasks_report
+
+```
