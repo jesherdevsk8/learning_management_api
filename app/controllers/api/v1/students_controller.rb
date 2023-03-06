@@ -1,6 +1,7 @@
 module Api
   module V1
     class StudentsController < ApplicationController
+      before_action :authorize, except: [:login]
       before_action :set_student, only: %i[ show update destroy ]
 
       # GET /students

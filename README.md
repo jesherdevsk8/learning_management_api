@@ -20,6 +20,7 @@
 > rails g model Semester current_semester current_semester_code description
 
 - Create courses
+> rails g scaffold Course instructor:references student:references semester:references teaching_level:references name description
 
 > rails g model Course instructor:references student:references semester:references teaching_level:references name description
 
@@ -36,7 +37,3 @@ rails db:create && \
 rails db:migrate && \
 rails db:seed
 ```
-
-### Create scaffolds
-
-- Create scaffold students

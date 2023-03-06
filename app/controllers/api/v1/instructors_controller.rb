@@ -1,6 +1,7 @@
 module Api
   module V1
     class InstructorsController < ApplicationController
+      before_action :authorize, except: [:login]
       before_action :set_instructor, only: %i[ show update destroy ]
 
       # GET /instructors
@@ -20,9 +21,22 @@ module Api
         @instructor = Instructor.new(instructor_params)
 
         if @instructor.save
-          render json: @instructor, status: :created, location: @instructor
+          token = encode_token({ instructor_id: @instructor.id })
+          render json: { instructor: @instructor, token: token }, status: :created
         else
           render json: @instructor.errors, status: :unprocessable_entity
+        end
+      end
+
+      # POST /instructor_login
+      def login
+        @instructor = Instructor.authenticate(instructor_params[:email], instructor_params[:password_digest])
+
+        if @instructor
+          token = encode_token({ instructor_id: @instructor.id })
+          render json: { instructor: @instructor, token: token }, status: :created
+        else
+          render json: { error: 'Invalid instructor' }, status: :unprocessable_entity
         end
       end
 
@@ -52,7 +66,6 @@ module Api
             :name,
             :email,
             :password_digest,
-            :password_confirmation,
             :active,
             :status
           )
