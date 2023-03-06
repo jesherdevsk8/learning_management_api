@@ -20,9 +20,22 @@ module Api
         @student = Student.new(student_params)
 
         if @student.save
-          render json: @student, status: :created, location: @student
+          token = encode_token({ student_id: @student.id })
+          render json: { student: @student, token: token }, status: :created
         else
           render json: @student.errors, status: :unprocessable_entity
+        end
+      end
+
+      # POST /login
+      def login
+        @student = Student.authenticate(student_params[:email], student_params[:password_digest])
+
+        if @student
+          token = encode_token({ student_id: @student.id })
+          render json: { student: @student, token: token }, status: :created
+        else
+          render json: { error: 'Invalid Student' }, status: :unprocessable_entity
         end
       end
 
@@ -48,7 +61,11 @@ module Api
 
         # Only allow a list of trusted parameters through.
         def student_params
-          params.require(:student).permit(:name, :email, :password)
+          params.require(:student).permit(
+            :name,
+            :email,
+            :password_digest
+          )
         end
     end
   end
